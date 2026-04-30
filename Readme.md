@@ -70,7 +70,28 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## 🔁 Step 5: Create Pull Request
+## Step 5: Manual Code Review & Testing (Important)
+
+- **After applying AI fixes, manually verify everything before creating a PR:**
+
+- Review all changes carefully (do not blindly trust AI fixes)
+- Test the plugin functionality:
+  - Ensure existing features are NOT broken
+  - Check both admin (backend) and frontend
+  - Enable debugging: WP_DEBUG and WP_DEBUG_LOG
+  - Check debug.log for errors
+  - Use tools: Activate Query Monitor plugin
+  - Check browser console for JS errors
+  - Verify: No PHP warnings/notices
+  - No JS errors
+  - No UI breakage
+  - No performance issues
+
+✅ Only proceed if everything is working correctly and no new issues are introduced.
+
+---
+
+## 🔁 Step 6: Create Pull Request
 
 - After fixing issues, create a **Pull Request (PR)**.
 - In the PR comment box, add:
@@ -81,7 +102,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## 🤖 Step 6: Claude Code Review (GitHub)
+## 🤖 Step 7: Claude Code Review (GitHub)
 
 - Claude will automatically:
   - Review your PR changes  
@@ -90,7 +111,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## ✅ Step 7: Final Fix & Merge
+## ✅ Step 8: Final Fix & Merge
 
 - Carefully review all Claude suggestions.
 - Fix all reported issues.
