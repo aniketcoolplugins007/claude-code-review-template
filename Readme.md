@@ -42,8 +42,6 @@ After adding these files, make sure they are **not included in your final plugin
 .claude/
 ```
 
----
-
 ## Why this is important
 
 - Prevents internal review files from going into production  
