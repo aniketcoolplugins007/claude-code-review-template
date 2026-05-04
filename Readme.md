@@ -32,18 +32,14 @@ After adding these files, make sure they are **not included in your final plugin
 
 ```
 .github/ export-ignore
-.claude/settings.json export-ignore
-.claude/CLAUDE.md export-ignore
-.claude/rules/ export-ignore
+.claude/ export-ignore
 ```
 
 ### Update `.distignore`
 
 ```
 .github/
-.claude/settings.json
-.claude/CLAUDE.md
-.claude/rules/
+.claude/
 ```
 
 ---
