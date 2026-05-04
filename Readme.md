@@ -24,7 +24,39 @@ your-plugin/
 
 ---
 
-## ⚙️ Step 2: Setup Codex in Your IDE
+## Step 2: Exclude Review Files from Production ZIP
+
+After adding these files, make sure they are **not included in your final plugin ZIP**.
+
+### Update `.gitattributes`
+
+```
+.github/ export-ignore
+.claude/settings.json export-ignore
+.claude/CLAUDE.md export-ignore
+.claude/rules/ export-ignore
+```
+
+### Update `.distignore`
+
+```
+.github/
+.claude/settings.json
+.claude/CLAUDE.md
+.claude/rules/
+```
+
+---
+
+## Why this is important
+
+- Prevents internal review files from going into production  
+- Keeps plugin ZIP clean and lightweight  
+- Avoids exposing internal rules and configs to users  
+
+---
+
+## ⚙️ Step 3: Setup Codex in Your IDE
 
 - Install the **Codex extension** (VS Code / Cursor).
 - Login using your ChatGPT account.
@@ -32,7 +64,7 @@ your-plugin/
 
 ---
 
-## 🔍 Step 3: Run Local Code & Security Review (Codex)
+## 🔍 Step 4: Run Local Code & Security Review (Codex)
 
 - Open `codex-prompt.txt` from the template.
 - Copy the prompt and paste it into the Codex chat panel.
@@ -56,7 +88,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## 🛠️ Step 4: Fix Issues Before Commit
+## 🛠️ Step 5: Fix Issues Before Commit
 
 - Go through all issues listed in `fix-issues.csv`.
 - Fix:
@@ -70,7 +102,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## Step 5: Manual Code Review & Testing (Important)
+## Step 6: Manual Code Review & Testing (Important)
 
 - **After applying AI fixes, manually verify everything before creating a PR:**
 
@@ -91,7 +123,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## 🔁 Step 6: Create Pull Request
+## 🔁 Step 7: Create Pull Request
 
 - After fixing issues, create a **Pull Request (PR)**.
 - In the PR comment box, add:
@@ -102,7 +134,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## 🤖 Step 7: Claude Code Review (GitHub)
+## 🤖 Step 8: Claude Code Review (GitHub)
 
 - Claude will automatically:
   - Review your PR changes  
@@ -111,7 +143,7 @@ File Name | Priority | Risk Type | Issue Type | Line No | Existing Code | Risk /
 
 ---
 
-## ✅ Step 8: Final Fix & Merge
+## ✅ Step 9: Final Fix & Merge
 
 - Carefully review all Claude suggestions.
 - Fix all reported issues.
