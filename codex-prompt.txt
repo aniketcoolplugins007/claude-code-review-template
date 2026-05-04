@@ -13,16 +13,15 @@ WordPress coding standard issues
 
 MANDATORY FILES TO FOLLOW
 Before starting, read and follow:
+Follow project structure
 .claude/settings.json (FIRST)
 claude/CLAUDE.md
 .claude/custom-prompt.txt (IMPORTANT) Apply all custom project-specific instructions use this file as a extra context for the project.
-Identify denied paths
-NEVER scan restricted paths
-Follow project structure
-Skip excluded files
 .claude/rules/security.md
 .claude/rules/code-review.md
 .claude/rules/code-style.md
+Identify denied paths
+NEVER scan restricted paths
 
 EXECUTION ORDER (STRICT)
 Read required rule files
