@@ -42,7 +42,7 @@ After adding these files, make sure they are **not included in your final plugin
 .claude/
 ```
 
-### update .gitignore
+### Update .gitignore
 
 ```
 fix-issues-files.txt
