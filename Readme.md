@@ -33,8 +33,6 @@ After adding these files, make sure they are **not included in your final plugin
 ```
 .github/ export-ignore
 .claude/ export-ignore
-fix-issues-files.txt export-ignore
-fix-issues.csv export-ignore
 ```
 
 ### Update `.distignore`
@@ -42,6 +40,11 @@ fix-issues.csv export-ignore
 ```
 .github/
 .claude/
+```
+
+### update .gitignore
+
+```
 fix-issues-files.txt
 fix-issues.csv
 ```
