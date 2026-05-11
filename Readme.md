@@ -6,9 +6,8 @@ Follow these steps to integrate automated **code review + security checks** into
 
 ## 📁 Step 1: Add Required Files
 
-- Extract the template ZIP.
-- Copy the `.claude` folder into your **plugin root directory**.
-- Copy `.github/workflows/claude-manual-review.yml` into the same root directory.
+- Extract the ZIP.
+- Copy the `.claude` and `.github` folders from the template folder and paste it into your **plugin root directory**.
 
 ✅ Final structure should look like:
 

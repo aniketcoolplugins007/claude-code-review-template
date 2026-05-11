@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Menu</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #5f6c80;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --border: #d9e0ea;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(23, 32, 51, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      min-height: 72px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      content: "";
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle-label span {
+      position: relative;
+    }
+
+    .nav-toggle-label span::before {
+      position: absolute;
+      top: -7px;
+    }
+
+    .nav-toggle-label span::after {
+      position: absolute;
+      top: 7px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible {
+      background: #e8f5f3;
+      color: var(--accent-dark);
+      outline: none;
+    }
+
+    .nav-menu .button-link {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .nav-menu .button-link:hover,
+    .nav-menu .button-link:focus-visible {
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: clamp(2.25rem, 5vw, 4rem);
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      max-width: 680px;
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .primary-action,
+    .secondary-action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .primary-action {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .secondary-action {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 64px;
+        flex-wrap: wrap;
+        padding: 0 16px;
+      }
+
+      .nav-toggle-label {
+        display: flex;
+      }
+
+      .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 0 0 16px;
+      }
+
+      .nav-menu a {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-toggle:checked ~ .nav-toggle-label span {
+        transform: rotate(45deg);
+      }
+
+      .nav-toggle:checked ~ .nav-toggle-label span::before {
+        top: 0;
+        transform: rotate(90deg);
+      }
+
+      .nav-toggle:checked ~ .nav-toggle-label span::after {
+        top: 0;
+        opacity: 0;
+      }
+
+      .nav-toggle:checked ~ .nav-menu {
+        display: flex;
+      }
+
+      main {
+        padding: 40px 16px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home">My Website</a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
+      <label class="nav-toggle-label" for="nav-toggle">
+        <span></span>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a class="button-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Simple, responsive navigation for your page.</h1>
+      <p>
+        This starter page includes a clean top navigation menu that works on desktop
+        and collapses into a menu button on smaller screens.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-action" href="#contact">Get Started</a>
+        <a class="secondary-action" href="#about">Learn More</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Add a short introduction about your site, team, product, or project here.</p>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <p>Use this section to describe the main services, features, or offerings.</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Highlight your best work, examples, or recent projects in this area.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Share your contact details or add a contact form when you are ready.</p>
+    </section>
+  </main>
+</body>
+</html>
